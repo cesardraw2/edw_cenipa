@@ -2,7 +2,7 @@ pdi:
   image: image_cenipa/pdi
   links:
      - biserver:edw_biserver
-     - db:postgres-draw
+     - postgres-draw:edw_db
   volumes:
     - /data/stage:/tmp/stage
   environment:
@@ -17,7 +17,7 @@ biserver:
   ports:
     - "9092:8080"
   links:
-    - db:postgres-draw
+    - postgres-draw:edw_db
   environment:
     - PGUSER=pgadmin
     - PGPASSWORD=pgadmin.
